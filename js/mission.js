@@ -116,7 +116,6 @@
 		},
 		beforeShowForm: function(formid){
 			var grid = $.jset.fn.get_grid_by_formid(formid);
-			console.log(grid.data('form_action'));
 			if(grid.data('form_action') == 'add' || grid.data('form_action') == 'copy')
 			{
 				$.jset.fn.get_rows(grid, 
@@ -133,7 +132,7 @@
 			sortorder: 'desc',
 			footerrow : true,
 			userDataOnFooter : true,
-			height: $(window).height() - 113
+			height: $(window).height() - 140
 	  	},
 	  	navigation:{
 			options : {
