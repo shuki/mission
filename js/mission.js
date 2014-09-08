@@ -1,32 +1,4 @@
 ﻿$(function(){
-	$.extend(true, $.jset.defaults, {
-		control:{
-			checkbox: {
-				searchoptions:{
-					value: {0:'לא', 1:'כן'},
-				}
-			},
-			selectbox:{
-				align: 'right'
-			},
-			text:{
-				align:'right'
-			},
-			textarea:{
-				align:'right'
-			},
-			varchar:{
-				align:'right'
-			},
-			editor:{
-				align:'right',
-				editoptions:{
-					directionality : 'rtl'
-				}
-			}
-		}
-	});
-		
 	var grid = $('#grid');
 	var settings = {
 	  	source: 'mission', //name of table, view or the actual sql that you wish to display in the grid
