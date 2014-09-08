@@ -30,22 +30,26 @@
 	var grid = $('#grid');
 	var settings = {
 	  	source: 'mission', //name of table, view or the actual sql that you wish to display in the grid
-	  	//source: 'demo', //name of table, view or the actual sql that you wish to display in the grid
+  		item_name: 'משימה',
 		load_edit_record: true, //reload record before editting
-			filterToolbar:{
-				hide: false,
-				navButtonAdd: false,
-				options: {
-					searchOperators: true,
-					searchOnEnter: false,
-					stringResult: true,
-					defaultSearch: 'cn',
-					beforeSearch: function(){
-						var $t = $(this);
-						var postData = $t.jqGrid('getGridParam','postData');
-					}
+		template: {
+			use: true,
+			columns: 3
+		},
+		filterToolbar:{
+			hide: false,
+			navButtonAdd: false,
+			options: {
+				searchOperators: true,
+				searchOnEnter: false,
+				stringResult: true,
+				defaultSearch: 'cn',
+				beforeSearch: function(){
+					var $t = $(this);
+					var postData = $t.jqGrid('getGridParam','postData');
 				}
-			},
+			}
+		},
 		'export':{
 			options: {
 				title: 'ייצא לאקסל'
