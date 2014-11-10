@@ -4,6 +4,7 @@
 	  	source: 'mission', //name of table, view or the actual sql that you wish to display in the grid
   		item_name: 'משימה',
 		load_edit_record: true, //reload record before editting
+		reopen_after_add: true,
 		template: {
 			use: true,
 			columns: 3

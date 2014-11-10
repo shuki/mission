@@ -10,6 +10,49 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
+-- Dumping structure for table mission.action
+DROP TABLE IF EXISTS `action`;
+CREATE TABLE IF NOT EXISTS `action` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent` int(11) NOT NULL,
+  `creation_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modify_date` datetime DEFAULT NULL,
+  `creator` int(11) DEFAULT NULL,
+  `date` date DEFAULT NULL,
+  `description` text,
+  `status` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+-- Dumping data for table mission.action: ~4 rows (approximately)
+/*!40000 ALTER TABLE `action` DISABLE KEYS */;
+REPLACE INTO `action` (`id`, `parent`, `creation_date`, `modify_date`, `creator`, `date`, `description`, `status`) VALUES
+	(2, 2, '2014-11-03 13:29:42', '2014-11-03 13:29:42', 1, '2014-11-03', 'התחלתי להבין מה קורה?\n', 3),
+	(4, 2, '2014-11-03 14:36:36', '2014-11-03 14:36:36', 1, '2014-11-03', NULL, 5),
+	(5, 2, '2014-11-07 16:48:33', '2014-11-07 16:48:33', 1, '2014-11-07', 'המשימה טופלה כראוי', 4),
+	(6, 2, '2014-11-07 16:49:12', '2014-11-07 16:49:12', 1, '2014-11-07', NULL, 8);
+/*!40000 ALTER TABLE `action` ENABLE KEYS */;
+
+
+-- Dumping structure for table mission.document
+DROP TABLE IF EXISTS `document`;
+CREATE TABLE IF NOT EXISTS `document` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `parent` int(10) NOT NULL,
+  `table` varchar(50) NOT NULL,
+  `type` int(10) DEFAULT NULL,
+  `date` date DEFAULT NULL,
+  `expiry_date` date DEFAULT NULL,
+  `description` varchar(400) DEFAULT NULL,
+  `file` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=99 DEFAULT CHARSET=utf8;
+
+-- Dumping data for table mission.document: ~0 rows (approximately)
+/*!40000 ALTER TABLE `document` DISABLE KEYS */;
+/*!40000 ALTER TABLE `document` ENABLE KEYS */;
+
+
 -- Dumping structure for table mission.jset_atom
 DROP TABLE IF EXISTS `jset_atom`;
 CREATE TABLE IF NOT EXISTS `jset_atom` (
@@ -20,10 +63,56 @@ CREATE TABLE IF NOT EXISTS `jset_atom` (
   `web_user` varchar(45) COLLATE utf8_bin DEFAULT NULL,
   `ip` varchar(45) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=FIXED;
+) ENGINE=InnoDB AUTO_INCREMENT=23739657292349483 DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=FIXED;
 
--- Dumping data for table mission.jset_atom: ~0 rows (approximately)
+-- Dumping data for table mission.jset_atom: ~45 rows (approximately)
 /*!40000 ALTER TABLE `jset_atom` DISABLE KEYS */;
+REPLACE INTO `jset_atom` (`id`, `stamp`, `user`, `kind`, `web_user`, `ip`) VALUES
+	(23644302273937448, '2014-09-08 16:02:50', 'root@localhost', 0, NULL, '::1'),
+	(23644302273937449, '2014-09-08 16:02:51', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349440, '2014-11-03 10:08:00', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349441, '2014-11-03 10:08:00', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349442, '2014-11-03 10:10:11', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349443, '2014-11-03 10:10:11', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349444, '2014-11-03 10:10:12', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349445, '2014-11-03 10:10:12', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349446, '2014-11-03 10:10:32', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349447, '2014-11-03 10:10:32', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349448, '2014-11-03 10:10:34', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349449, '2014-11-03 10:10:34', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349450, '2014-11-03 10:21:05', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349451, '2014-11-03 11:37:00', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349452, '2014-11-03 11:37:00', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349453, '2014-11-03 12:26:38', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349454, '2014-11-03 12:41:31', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349455, '2014-11-03 12:41:31', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349456, '2014-11-03 12:41:50', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349457, '2014-11-03 12:41:50', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349458, '2014-11-03 12:41:50', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349459, '2014-11-03 12:41:50', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349460, '2014-11-03 12:46:36', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349461, '2014-11-03 12:46:36', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349462, '2014-11-03 12:49:04', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349463, '2014-11-03 12:49:04', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349464, '2014-11-03 12:49:04', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349465, '2014-11-03 12:49:04', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349466, '2014-11-04 08:13:06', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349467, '2014-11-04 08:13:06', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349468, '2014-11-04 08:34:31', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349469, '2014-11-04 08:34:31', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349470, '2014-11-04 08:35:03', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349471, '2014-11-04 08:35:03', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349472, '2014-11-04 08:55:50', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349473, '2014-11-04 08:55:50', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349474, '2014-11-04 08:55:50', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349475, '2014-11-04 08:55:50', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349476, '2014-11-07 16:29:47', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349477, '2014-11-07 16:29:47', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349478, '2014-11-07 16:49:27', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349479, '2014-11-07 16:49:27', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349480, '2014-11-09 06:27:05', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349481, '2014-11-09 06:27:05', 'root@localhost', 0, NULL, '::1'),
+	(23739657292349482, '2014-11-09 06:35:13', 'root@localhost', 0, NULL, '::1');
 /*!40000 ALTER TABLE `jset_atom` ENABLE KEYS */;
 
 
@@ -60,9 +149,9 @@ CREATE TABLE IF NOT EXISTS `jset_column` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `parent` (`parent`,`name`),
   CONSTRAINT `FK_jset_table_parent` FOREIGN KEY (`parent`) REFERENCES `jset_table` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=308 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=343 DEFAULT CHARSET=utf8;
 
--- Dumping data for table mission.jset_column: ~73 rows (approximately)
+-- Dumping data for table mission.jset_column: ~92 rows (approximately)
 /*!40000 ALTER TABLE `jset_column` DISABLE KEYS */;
 REPLACE INTO `jset_column` (`id`, `parent`, `name`, `index`, `title`, `control`, `hidden`, `readonly`, `edithidden`, `noedit`, `unsortable`, `export`, `position`, `rowpos`, `rowlabel`, `default_value`, `search_default`, `width`, `usize`, `height`, `list`, `src`, `override`, `help`, `validation`, `aggregate`, `object`) VALUES
 	(17, 3, 'source', NULL, 'Source', 'textarea', 0, 0, 0, 0, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, '100', '8', 'v_source', NULL, NULL, 'The data source of this record.', NULL, NULL, NULL),
@@ -120,24 +209,43 @@ REPLACE INTO `jset_column` (`id`, `parent`, `name`, `index`, `title`, `control`,
 	(275, 4, 'unsortable', NULL, 'Unsortable', 'checkbox', 0, 0, 0, 0, NULL, 1, NULL, 30, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Check this field if you wish this column to not be sortable.', NULL, NULL, 'searchoptions:{\r\n	sopt: [\'eq\']\r\n}'),
 	(278, 4, 'object', NULL, 'Object', 'textarea', 0, 0, 0, 0, 0, 1, NULL, 100, NULL, NULL, NULL, NULL, '120', '4', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 	(279, 3, 'validation', NULL, 'Validation', 'textarea', 0, 0, 0, 0, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, '100', '8', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-	(280, 28, 'id', NULL, NULL, NULL, 1, 0, 0, 0, 0, 1, NULL, 125, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+	(280, 28, 'id', NULL, NULL, NULL, 1, 0, 0, 0, 0, 1, NULL, 127, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 	(281, 28, 'category', NULL, 'קטגוריה', 'selectbox', 0, 0, 0, 0, 0, 1, NULL, 100, NULL, '1', NULL, '40', NULL, NULL, 'select tid as id, name from jset_list where `type` = \'category\' order by id', NULL, NULL, 'קטגורית המשימה', 'required:true', NULL, NULL),
 	(282, 28, 'name', NULL, 'סעיף', NULL, 0, 0, 0, 0, 0, 1, NULL, 100, NULL, NULL, NULL, '25', '3', NULL, NULL, NULL, NULL, 'סעיף, מספור המשימה. \nמאפשר לנו לקרוא למשימה בשם פשוט ויחודי', 'required:true', NULL, NULL),
-	(283, 28, 'description', NULL, 'תאור', 'editor', 0, 0, 0, 0, 0, 1, NULL, 105, NULL, NULL, NULL, '200', '800', '70', NULL, NULL, NULL, 'תאור ואיפיון המשימה.\nאפשר להכניס לשדה זה תאור עם תמונות מסך וטקסט מעוצב.', NULL, NULL, NULL),
-	(284, 28, 'estimated_hours', NULL, 'תמחור', NULL, 0, 0, 0, 0, 0, 1, NULL, 120, NULL, NULL, NULL, '25', '3', NULL, NULL, NULL, NULL, 'הצעת מחיר בשעות, ימולא על ידי המפתח לאחר שהמשימה אופיינה.', NULL, 'sum(estimated_hours)', NULL),
-	(285, 28, 'approved', NULL, 'מאושר?', 'checkbox', 0, 0, 0, 0, 0, 1, NULL, 120, NULL, NULL, NULL, '30', NULL, NULL, NULL, NULL, NULL, 'הצעת המחיר מאושרת.\nהשדה יסומן לציין שהצעת המחיר מאושרת ואפשר להתחיל את תהליך הפיתוח', NULL, NULL, 'searchoptions:{\n	sopt: [\'eq\']\n}'),
-	(286, 28, 'approved_date', NULL, 'תאריך אישור', NULL, 1, 0, 0, 0, 0, 1, NULL, 125, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-	(287, 28, 'due_date', NULL, 'תאריך משוער', NULL, 0, 0, 0, 0, 0, 1, NULL, 126, NULL, NULL, NULL, '40', NULL, NULL, NULL, NULL, NULL, 'תאריך משוער לביצוע המשימה.\nימולא על ידי המפתח לאחר שהמשימה אושרה', NULL, NULL, NULL),
+	(283, 28, 'description', NULL, 'תאור', 'editor', 0, 0, 0, 0, 0, 1, NULL, 105, 'תאור', NULL, NULL, '200', '80', '8', NULL, NULL, NULL, 'תאור ואיפיון המשימה.', NULL, NULL, 'formoptions:{\n	label_hide: true\n}\n'),
+	(284, 28, 'estimated_hours', NULL, 'תמחור', NULL, 0, 0, 0, 0, 0, 1, NULL, 100, NULL, NULL, NULL, '25', '3', NULL, NULL, NULL, NULL, 'הצעת מחיר בשעות, ימולא על ידי המפתח לאחר שהמשימה אופיינה.', NULL, 'sum(estimated_hours)', NULL),
+	(285, 28, 'approved', NULL, 'מאושר?', 'checkbox', 1, 0, 0, 0, 0, 1, NULL, 127, NULL, NULL, NULL, '30', NULL, NULL, NULL, NULL, NULL, 'הצעת המחיר מאושרת.\nהשדה יסומן לציין שהצעת המחיר מאושרת ואפשר להתחיל את תהליך הפיתוח', NULL, NULL, 'searchoptions:{\n	sopt: [\'eq\']\n}'),
+	(286, 28, 'approved_date', NULL, 'תאריך אישור', NULL, 1, 0, 0, 0, 0, 1, NULL, 127, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+	(287, 28, 'due_date', NULL, 'תאריך משוער', 'custom_date', 0, 0, 0, 0, 0, 1, NULL, 126, NULL, NULL, NULL, '40', NULL, NULL, NULL, NULL, NULL, 'תאריך משוער לביצוע המשימה.\nימולא על ידי המפתח לאחר שהמשימה אושרה', NULL, NULL, NULL),
 	(288, 28, 'delivery_date', NULL, 'תאריך ביצוע', 'custom_date', 0, 0, 0, 0, 0, 1, NULL, 126, NULL, NULL, NULL, '40', NULL, NULL, NULL, NULL, NULL, 'התאריך בו בוצעה המשימה והועלתה אל שרת הפיתוח', NULL, NULL, NULL),
 	(289, 28, 'invoice_number', NULL, 'חשבונית', NULL, 0, 0, 0, 0, 0, 1, NULL, 126, NULL, NULL, NULL, '30', '3', NULL, NULL, NULL, NULL, 'ימולא על ידי המפתח לציין באיזו חשבונית חוייבה העבודה על המשימה', NULL, NULL, NULL),
-	(290, 28, 'status', NULL, 'סטטוס', 'selectbox', 0, 0, 0, 0, 0, 1, NULL, 100, NULL, '1', NULL, '40', NULL, NULL, 'select tid as id, name from jset_list where `type` = \'status\' order by id', NULL, NULL, 'סטטוסי המשימה:\nאופיין - המשימה אופיינה וממתינה להצעת מחיר\nהצעת מחיר - המפתח נתן  הצעת מחיר וממתין לאישור\nטופל - המשימה שאושרה פותחה וממתינה לבדיקה בשרת הפיתוח\nנבדק - המשימה נבדקה בהצלחה וממתינה להתקנה בשרת העבודה\nטיפול חוזר - המשימה נבדקה ואינה עובדת כהלכה\nבוצע - המשימה הועלתה אל שרת העבודה', 'required:true', NULL, NULL),
-	(292, 28, 'comments', NULL, 'הערות', 'editor', 0, 0, 0, 0, 0, 1, NULL, 124, NULL, NULL, NULL, '180', '800', '70', NULL, NULL, NULL, 'הערות על המשימה.\nבכל שלב אפשר להוסיף כאן הערות', NULL, NULL, NULL),
-	(296, 28, 'picture', NULL, 'מסמך', 'upload_file', 1, 0, 1, 0, 0, 1, NULL, 110, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'צרף תמונה', NULL, NULL, NULL),
+	(290, 28, 'status_last', NULL, 'סטטוס', 'selectbox', 0, 1, 0, 0, 0, 1, NULL, 100, NULL, '1', NULL, '40', NULL, NULL, 'select tid as id, name from jset_list where `type` = \'status\' order by id', NULL, NULL, 'סטטוסי המשימה:\nאופיין - המשימה אופיינה וממתינה להצעת מחיר\nהצעת מחיר - המפתח נתן  הצעת מחיר וממתין לאישור\nטופל - המשימה שאושרה פותחה וממתינה לבדיקה בשרת הפיתוח\nנבדק - המשימה נבדקה בהצלחה וממתינה להתקנה בשרת העבודה\nטיפול חוזר - המשימה נבדקה ואינה עובדת כהלכה\nבוצע - המשימה הועלתה אל שרת העבודה', 'required:true', NULL, NULL),
+	(292, 28, 'comments', NULL, 'הערות', 'editor', 0, 0, 0, 0, 0, 1, NULL, 122, 'הערות', NULL, NULL, '180', '80', '8', NULL, NULL, NULL, 'הערות על המשימה.\nבכל שלב אפשר להוסיף כאן הערות', NULL, NULL, 'formoptions:{\n	label_hide: true\n}\n'),
+	(296, 28, 'picture', NULL, 'מסמך', 'upload_file', 1, 0, 0, 0, 0, 1, NULL, 120, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'צרף תמונה', NULL, NULL, NULL),
 	(299, 28, 'created_on', NULL, 'זמן יצירה', 'timestamp', 0, 1, 0, 0, 0, 1, NULL, 100, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'הזמן בו נוצרה המשימה', NULL, NULL, NULL),
 	(302, 28, 'priority', NULL, 'עדיפות', 'selectbox', 0, 0, 0, 0, 0, 1, NULL, 100, NULL, '1', NULL, '40', NULL, NULL, 'select tid as id, name from jset_list where `type` = \'priority\' order by id', NULL, NULL, NULL, NULL, NULL, NULL),
 	(303, 28, 'actual_hours', NULL, 'חיוב', NULL, 1, 0, 1, 0, 0, 0, NULL, 126, NULL, NULL, NULL, '20', '3', NULL, NULL, NULL, NULL, 'חיוב בפועל עבור המשימה', NULL, NULL, NULL),
 	(304, 28, 'charged_hours', NULL, 'חיוב', NULL, 0, 0, 0, 1, 0, 1, NULL, 125, NULL, NULL, NULL, '25', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'sum(charged_hours)', NULL),
-	(305, 28, 'project', NULL, 'פרוייקט', 'selectbox', 0, 0, 0, 0, 0, 1, NULL, 100, NULL, '1', NULL, NULL, NULL, NULL, 'select tid as id, name from jset_list where `type` = \'project\' order by name', NULL, NULL, NULL, 'required:true', NULL, NULL);
+	(305, 28, 'project', NULL, 'פרוייקט', 'selectbox', 0, 0, 0, 0, 0, 1, NULL, 100, NULL, '1', NULL, NULL, NULL, NULL, 'select tid as id, name from jset_list where `type` = \'project\' order by name', NULL, NULL, NULL, 'required:true', NULL, NULL),
+	(306, 28, 'documents', NULL, 'מסמכים', 'jsetgrid', 1, 0, 1, 0, 0, 0, NULL, 110, 'מסמכים', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'settings:{\n	source: \'document\',\n	item_name:\'מסמך\',\n	load_edit_record: false,\n	search_default:[],\n	filter:[{\n		source: \'id\',\n		target: \'parent\'\n	}],\n	persist:false,\n	template: {\n		use: true,\n		columns: 1\n	},\n        grid: {\n        	width:380,\n                height:70,\n	        sortname: \'date\',\n	        sortorder: \'desc\'\n          },\n         navigation:{\n		options : {\n			del: user_attributes.group == 1,\n			search: false,\n			view: false\n		},\n		edit:{\n			checkOnUpdate:true\n		},\n		add:{\n			checkOnUpdate:true\n		}\n         }\n}\n'),
+	(307, 28, 'actions', NULL, 'פעולות', 'jsetgrid', 1, 0, 1, 0, 0, 0, NULL, 124, 'פעולות', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'settings:{\n	source: \'action\',\n	item_name:\'פעולה\',\n	load_edit_record: false,\n	search_default:[],\n	filter:[{\n		source: \'id\',\n		target: \'parent\'\n	}],\n	persist:false,\n	template: {\n		use: true,\n		columns: 1\n	},\n        grid: {\n        	width:380,\n                height:70,\n	        sortname: \'creation_date\',\n	        sortorder: \'desc\'\n          },\n	onInitializeForm: function(formid){\n		$(formid).closest(\'.ui-jqdialog\').offset({ top: -140, left: 200});\n		$.jset.fn.append_fields(formid, \'creation_date\', 2);\n		$.jset.fn.append_fields(formid, \'date\', 1);\n	},\n         navigation:{\n		options : {\n			del: user_attributes.group == 1,\n			search: false,\n			view: false\n		},\n		edit:{\n			checkOnUpdate:true\n		},\n		add:{\n			checkOnUpdate:true\n		}\n         }\n}\n'),
+	(309, 35, 'date', 'document_date', 'תאריך', 'custom_date', 0, 0, 0, 0, 0, 1, NULL, 10, NULL, 'fx: db_utils::current_date()', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+	(310, 35, 'description', NULL, 'תאור', 'textarea', 0, 0, 0, 0, 0, 1, NULL, 10, 'מסמך', NULL, NULL, NULL, '30', '2', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+	(311, 35, 'expiry_date', 'document_expiry_date', 'תפוגה', 'custom_date', 1, 0, 0, 0, 0, 1, NULL, 10, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+	(312, 35, 'file', NULL, 'מסמך', 'upload_file', 0, 0, 0, 0, 0, 1, NULL, 10, NULL, NULL, NULL, NULL, '7', '5', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+	(313, 35, 'id', NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+	(314, 35, 'parent', NULL, NULL, NULL, 1, 0, 0, 0, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'searchoptions:{\n	sopt:[\'eq\']\n}'),
+	(315, 35, 'table', NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, NULL, 10, NULL, 'patient', 'patient', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'searchoptions:{\n	sopt:[\'eq\']\n}'),
+	(316, 35, 'type', NULL, 'סוג', 'text', 1, 0, 0, 0, 0, 1, NULL, 10, NULL, NULL, NULL, NULL, NULL, NULL, 'select * from (select tid as id, name from jset_list where `type` = \'document_type\' order by name) b', NULL, NULL, NULL, NULL, NULL, NULL),
+	(324, 36, 'creation_date', NULL, 'נוצר', 'datetime', 0, 1, 0, 0, 0, 1, NULL, 10, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+	(325, 36, 'creator', NULL, 'יוצר', 'selectbox', 0, 1, 0, 0, 0, 1, NULL, 10, NULL, 'fx: jset_permission::get_user_id()', NULL, '60', NULL, NULL, 'select id, login as name from worker order by name', NULL, NULL, NULL, NULL, NULL, NULL),
+	(327, 36, 'id', NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, NULL, 50, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+	(329, 36, 'modify_date', NULL, 'עודכן', 'datetime', 1, 1, 0, 0, 0, 1, NULL, 10, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'db_utils::current_datetime()', NULL, NULL, NULL, NULL),
+	(330, 36, 'parent', NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, NULL, 50, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'searchoptions:{\n	sopt:[\'eq\']\n}'),
+	(332, 36, 'description', 'description_action', 'תאור', 'textarea', 0, 0, 0, 0, 0, 1, NULL, 25, 'תאור', NULL, NULL, NULL, '80', '4', NULL, NULL, NULL, NULL, NULL, NULL, 'formoptions:{\n	label_hide: true\n}\n'),
+	(333, 36, 'date', 'date_action', 'תאריך', 'custom_date', 1, 0, 0, 0, 0, 0, NULL, 15, NULL, 'fx: db_utils::current_date()', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+	(339, 36, 'status', NULL, 'סטטוס', 'selectbox', 0, 0, 0, 0, 0, 1, NULL, 20, NULL, NULL, NULL, '60', NULL, NULL, 'select tid as id, name from jset_list where `type` = \'status\' order by id', NULL, NULL, NULL, NULL, NULL, NULL),
+	(340, 28, 'action_id', NULL, NULL, NULL, 1, 0, 0, 0, 0, 0, NULL, 127, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 /*!40000 ALTER TABLE `jset_column` ENABLE KEYS */;
 
 
@@ -173,8 +281,47 @@ CREATE TABLE IF NOT EXISTS `jset_error` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table mission.jset_error: ~0 rows (approximately)
+-- Dumping data for table mission.jset_error: ~38 rows (approximately)
 /*!40000 ALTER TABLE `jset_error` DISABLE KEYS */;
+REPLACE INTO `jset_error` (`id`, `message`, `query`, `params`) VALUES
+	(23644302273937448, 'SQLSTATE[42S02]: Base table or view not found: 1146 Table \'mission.v_source\' doesn\'t exist', 'SELECT * FROM v_source', ''),
+	(23644302273937449, 'SQLSTATE[42S02]: Base table or view not found: 1146 Table \'mission.v_target\' doesn\'t exist', 'SELECT * FROM v_target', ''),
+	(23739657292349440, 'SQLSTATE[42S02]: Base table or view not found: 1146 Table \'mission.v_source\' doesn\'t exist', 'SELECT * FROM v_source', ''),
+	(23739657292349441, 'SQLSTATE[42S02]: Base table or view not found: 1146 Table \'mission.v_target\' doesn\'t exist', 'SELECT * FROM v_target', ''),
+	(23739657292349442, 'SQLSTATE[42S02]: Base table or view not found: 1146 Table \'mission.v_source\' doesn\'t exist', 'SELECT * FROM v_source', ''),
+	(23739657292349443, 'SQLSTATE[42S02]: Base table or view not found: 1146 Table \'mission.v_target\' doesn\'t exist', 'SELECT * FROM v_target', ''),
+	(23739657292349444, 'SQLSTATE[42S02]: Base table or view not found: 1146 Table \'mission.v_source\' doesn\'t exist', 'SELECT * FROM v_source', ''),
+	(23739657292349445, 'SQLSTATE[42S02]: Base table or view not found: 1146 Table \'mission.v_target\' doesn\'t exist', 'SELECT * FROM v_target', ''),
+	(23739657292349446, 'SQLSTATE[42S02]: Base table or view not found: 1146 Table \'mission.v_source\' doesn\'t exist', 'SELECT * FROM v_source', ''),
+	(23739657292349447, 'SQLSTATE[42S02]: Base table or view not found: 1146 Table \'mission.v_target\' doesn\'t exist', 'SELECT * FROM v_target', ''),
+	(23739657292349448, 'SQLSTATE[42S02]: Base table or view not found: 1146 Table \'mission.v_source\' doesn\'t exist', 'SELECT * FROM v_source', ''),
+	(23739657292349449, 'SQLSTATE[42S02]: Base table or view not found: 1146 Table \'mission.v_target\' doesn\'t exist', 'SELECT * FROM v_target', ''),
+	(23739657292349451, 'SQLSTATE[42S02]: Base table or view not found: 1146 Table \'mission.v_source\' doesn\'t exist', 'SELECT * FROM v_source', ''),
+	(23739657292349452, 'SQLSTATE[42S02]: Base table or view not found: 1146 Table \'mission.v_target\' doesn\'t exist', 'SELECT * FROM v_target', ''),
+	(23739657292349454, 'SQLSTATE[42S02]: Base table or view not found: 1146 Table \'mission.v_source\' doesn\'t exist', 'SELECT * FROM v_source', ''),
+	(23739657292349455, 'SQLSTATE[42S02]: Base table or view not found: 1146 Table \'mission.v_target\' doesn\'t exist', 'SELECT * FROM v_target', ''),
+	(23739657292349456, 'SQLSTATE[42S02]: Base table or view not found: 1146 Table \'mission.v_source\' doesn\'t exist', 'SELECT * FROM v_source', ''),
+	(23739657292349457, 'SQLSTATE[42S02]: Base table or view not found: 1146 Table \'mission.v_target\' doesn\'t exist', 'SELECT * FROM v_target', ''),
+	(23739657292349458, 'SQLSTATE[42S02]: Base table or view not found: 1146 Table \'mission.v_source\' doesn\'t exist', 'SELECT * FROM v_source', ''),
+	(23739657292349459, 'SQLSTATE[42S02]: Base table or view not found: 1146 Table \'mission.v_target\' doesn\'t exist', 'SELECT * FROM v_target', ''),
+	(23739657292349460, 'SQLSTATE[42S02]: Base table or view not found: 1146 Table \'mission.v_source\' doesn\'t exist', 'SELECT * FROM v_source', ''),
+	(23739657292349461, 'SQLSTATE[42S02]: Base table or view not found: 1146 Table \'mission.v_target\' doesn\'t exist', 'SELECT * FROM v_target', ''),
+	(23739657292349462, 'SQLSTATE[42S02]: Base table or view not found: 1146 Table \'mission.v_source\' doesn\'t exist', 'SELECT * FROM v_source', ''),
+	(23739657292349463, 'SQLSTATE[42S02]: Base table or view not found: 1146 Table \'mission.v_target\' doesn\'t exist', 'SELECT * FROM v_target', ''),
+	(23739657292349464, 'SQLSTATE[42S02]: Base table or view not found: 1146 Table \'mission.v_source\' doesn\'t exist', 'SELECT * FROM v_source', ''),
+	(23739657292349465, 'SQLSTATE[42S02]: Base table or view not found: 1146 Table \'mission.v_target\' doesn\'t exist', 'SELECT * FROM v_target', ''),
+	(23739657292349467, 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry \'2\' for key \'PRIMARY\'', 'INSERT INTO jset_log_mission_ SELECT ?, mission.* FROM mission where mission.id = ?', '[0] => 23739657292349466\n    [1] => 2'),
+	(23739657292349469, 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry \'2\' for key \'PRIMARY\'', 'INSERT INTO jset_log_mission_ SELECT ?, mission.* FROM mission where mission.id = ?', '[0] => 23739657292349468\n    [1] => 2'),
+	(23739657292349471, 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry \'1\' for key \'PRIMARY\'', 'INSERT INTO jset_log_mission_ SELECT ?, mission.* FROM mission where mission.id = ?', '[0] => 23739657292349470\n    [1] => 1'),
+	(23739657292349472, 'SQLSTATE[42S02]: Base table or view not found: 1146 Table \'mission.v_source\' doesn\'t exist', 'SELECT * FROM v_source', ''),
+	(23739657292349473, 'SQLSTATE[42S02]: Base table or view not found: 1146 Table \'mission.v_target\' doesn\'t exist', 'SELECT * FROM v_target', ''),
+	(23739657292349474, 'SQLSTATE[42S02]: Base table or view not found: 1146 Table \'mission.v_source\' doesn\'t exist', 'SELECT * FROM v_source', ''),
+	(23739657292349475, 'SQLSTATE[42S02]: Base table or view not found: 1146 Table \'mission.v_target\' doesn\'t exist', 'SELECT * FROM v_target', ''),
+	(23739657292349476, 'SQLSTATE[42S02]: Base table or view not found: 1146 Table \'mission.v_source\' doesn\'t exist', 'SELECT * FROM v_source', ''),
+	(23739657292349477, 'SQLSTATE[42S02]: Base table or view not found: 1146 Table \'mission.v_target\' doesn\'t exist', 'SELECT * FROM v_target', ''),
+	(23739657292349479, 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry \'2\' for key \'PRIMARY\'', 'INSERT INTO jset_log_mission_ SELECT ?, mission.* FROM mission where mission.id = ?', '[0] => 23739657292349478\n    [1] => 2'),
+	(23739657292349480, 'SQLSTATE[42S02]: Base table or view not found: 1146 Table \'mission.v_source\' doesn\'t exist', 'SELECT * FROM v_source', ''),
+	(23739657292349481, 'SQLSTATE[42S02]: Base table or view not found: 1146 Table \'mission.v_target\' doesn\'t exist', 'SELECT * FROM v_target', '');
 /*!40000 ALTER TABLE `jset_error` ENABLE KEYS */;
 
 
@@ -194,13 +341,14 @@ CREATE TABLE IF NOT EXISTS `jset_event` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `parent` (`parent`) USING BTREE,
   CONSTRAINT `FK_jset_event_parent` FOREIGN KEY (`parent`) REFERENCES `jset_table` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
--- Dumping data for table mission.jset_event: ~2 rows (approximately)
+-- Dumping data for table mission.jset_event: ~3 rows (approximately)
 /*!40000 ALTER TABLE `jset_event` DISABLE KEYS */;
 REPLACE INTO `jset_event` (`id`, `parent`, `before_insert`, `after_insert`, `before_select`, `after_select`, `before_update`, `after_update`, `before_delete`, `after_delete`) VALUES
 	(2, 3, NULL, 'jset_columns_mysql::create_columns(id,source)~jset_event::create_event(id)', NULL, NULL, NULL, 'jset_columns_mysql::create_columns(id,source)~jset_event::create_event(id)', NULL, NULL),
-	(57, 28, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+	(57, 28, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+	(59, 36, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 /*!40000 ALTER TABLE `jset_event` ENABLE KEYS */;
 
 
@@ -262,7 +410,7 @@ REPLACE INTO `jset_lang_item` (`id`, `parent`, `name`, `value`) VALUES
 	(2, 1, 'user', 'User'),
 	(3, 1, 'password', 'Password'),
 	(4, 1, 'submit', 'Login'),
-	(5, 2, 'title', 'המייסדים - התחברות'),
+	(5, 2, 'title', 'משימות - התחברות'),
 	(6, 2, 'user', 'שם'),
 	(7, 2, 'password', 'סיסמה'),
 	(8, 2, 'submit', 'התחבר'),
@@ -317,9 +465,9 @@ CREATE TABLE IF NOT EXISTS `jset_list` (
   `type` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `Index_type` (`type`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
--- Dumping data for table mission.jset_list: ~18 rows (approximately)
+-- Dumping data for table mission.jset_list: ~19 rows (approximately)
 /*!40000 ALTER TABLE `jset_list` DISABLE KEYS */;
 REPLACE INTO `jset_list` (`id`, `tid`, `name`, `type`) VALUES
 	(1, 1, 'waterproof', 'project'),
@@ -335,11 +483,12 @@ REPLACE INTO `jset_list` (`id`, `tid`, `name`, `type`) VALUES
 	(13, 5, 'אחר', 'category'),
 	(16, 1, 'אופיין', 'status'),
 	(17, 2, 'הצעת מחיר', 'status'),
-	(18, 3, 'טופל', 'status'),
-	(19, 4, 'נבדק', 'status'),
-	(20, 5, 'טיפול חוזר', 'status'),
-	(21, 6, 'בוצע', 'status'),
-	(22, 7, 'לא הושלם', 'status');
+	(18, 3, 'בטיפול', 'status'),
+	(19, 5, 'נבדק', 'status'),
+	(20, 6, 'טיפול חוזר', 'status'),
+	(21, 7, 'בוצע', 'status'),
+	(22, 8, 'לא הושלם', 'status'),
+	(23, 4, 'טופל', 'status');
 /*!40000 ALTER TABLE `jset_list` ENABLE KEYS */;
 
 
@@ -353,10 +502,31 @@ CREATE TABLE IF NOT EXISTS `jset_login` (
   `password` varbinary(150) DEFAULT NULL,
   `success` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
--- Dumping data for table mission.jset_login: ~0 rows (approximately)
+-- Dumping data for table mission.jset_login: ~10 rows (approximately)
 /*!40000 ALTER TABLE `jset_login` DISABLE KEYS */;
+REPLACE INTO `jset_login` (`id`, `stamp`, `ip`, `user`, `password`, `success`) VALUES
+	(1, '2014-09-13 10:34:57', '::1', 'user', _binary 0x84563AA7421ADA432A88E0DDE543EA49, 1),
+	(2, '2014-11-03 08:36:45', '::1', 'shuki', _binary 0x84563AA7421ADA432A88E0DDE543EA49, 0),
+	(3, '2014-11-03 08:36:57', '::1', 'shuki', _binary 0x84563AA7421ADA432A88E0DDE543EA49, 0),
+	(4, '2014-11-03 08:37:12', '::1', 'shuki', _binary 0x88191A971995A4D3C2B042A4423C3C8A, 0),
+	(5, '2014-11-03 08:37:53', '::1', 'shuki', _binary 0x84563AA7421ADA432A88E0DDE543EA49, 0),
+	(6, '2014-11-03 08:40:54', '::1', 'user', _binary 0x84563AA7421ADA432A88E0DDE543EA49, 1),
+	(7, '2014-11-07 16:17:29', '::1', 'shuki', _binary 0x84563AA7421ADA432A88E0DDE543EA49, 0),
+	(8, '2014-11-07 16:17:42', '::1', 'user', _binary 0x84563AA7421ADA432A88E0DDE543EA49, 1),
+	(9, '2014-11-09 06:27:51', '::1', 'user', _binary 0x84563AA7421ADA432A88E0DDE543EA49, 1),
+	(10, '2014-11-10 08:47:48', '::1', 'user', _binary 0x84563AA7421ADA432A88E0DDE543EA49, 1),
+	(11, '2014-11-10 08:58:53', '::1', 'shuki', _binary 0x88191A971995A4D3C2B042A4423C3C8A, 0),
+	(12, '2014-11-10 08:59:02', '::1', 'user', _binary 0x84563AA7421ADA432A88E0DDE543EA49, 0),
+	(13, '2014-11-10 08:59:17', '::1', 'shlomit', _binary 0x3927FB2BAF21874F7AB855B58EE6E77C, 1),
+	(14, '2014-11-10 09:02:59', '::1', 'shuki', _binary 0x84563AA7421ADA432A88E0DDE543EA49, 0),
+	(15, '2014-11-10 09:03:05', '::1', 'shuki', _binary 0x84563AA7421ADA432A88E0DDE543EA49, 0),
+	(16, '2014-11-10 09:03:20', '::1', 'shuki', _binary 0x84563AA7421ADA432A88E0DDE543EA49, 0),
+	(17, '2014-11-10 09:04:19', '::1', 'shuki', _binary 0x3927FB2BAF21874F7AB855B58EE6E77C, 0),
+	(18, '2014-11-10 09:05:42', '::1', 'shuki', _binary 0x3927FB2BAF21874F7AB855B58EE6E77C, 1),
+	(19, '2014-11-10 09:06:11', '::1', 'shuki', _binary 0x3927FB2BAF21874F7AB855B58EE6E77C, 1),
+	(20, '2014-11-10 09:06:23', '::1', 'shuki', _binary 0x88191A971995A4D3C2B042A4423C3C8A, 1);
 /*!40000 ALTER TABLE `jset_login` ENABLE KEYS */;
 
 
@@ -385,8 +555,10 @@ CREATE TABLE IF NOT EXISTS `jset_log_mission_` (
   UNIQUE KEY `Index 2` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table mission.jset_log_mission_: ~0 rows (approximately)
+-- Dumping data for table mission.jset_log_mission_: ~1 rows (approximately)
 /*!40000 ALTER TABLE `jset_log_mission_` DISABLE KEYS */;
+REPLACE INTO `jset_log_mission_` (`uuid`, `id`, `created_on`, `name`, `category`, `project`, `description`, `estimated_hours`, `actual_hours`, `approved`, `approved_date`, `due_date`, `delivery_date`, `status`, `comments`, `invoice_number`, `picture`, `priority`) VALUES
+	(23739657292349482, 1, '2014-09-08 16:54:59', '1', 1, 1, '<ol>\n<li>היי שלומית, ברוכה הבאה אל מערכת המשימות החדשה שלנו.</li>\n</ol>\n<p>אני מאחל לנו עבודה משותפת רבה יחד.</p>\n<p>להלן המשימה הראשונה:</p>\n<ul>\n<li>עדכני את הגירסה של jxset דרך Aptana.</li>\n<li>עדכני את הגירסה של waterproof דרך Aptana.</li>\n<li>הריצי את הקוד הזה על מאגר הנתונים waterproof:</li>\n</ul>\n<pre dir="ltr"><span class="sql1-reservedword">CREATE</span><span class="sql1-reservedword">TABLE</span><span class="sql1-delimitedidentifier">`reading_register`</span><span class="sql1-symbol">(\n</span><span class="sql1-delimitedidentifier">`id`</span><span class="sql1-datatype">INT</span><span class="sql1-symbol">(</span><span class="sql1-number">10</span><span class="sql1-symbol">)</span><span class="sql1-datatype">UNSIGNED</span><span class="sql1-reservedword">NOT</span><span class="sql1-reservedword">NULL</span><span class="sql1-reservedword">AUTO_INCREMENT</span><span class="sql1-symbol">,\n</span><span class="sql1-delimitedidentifier">`date`</span><span class="sql1-datatype">DATE</span><span class="sql1-reservedword">NULL</span><span class="sql1-reservedword">DEFAULT</span><span class="sql1-reservedword">NULL</span><span class="sql1-symbol">,\n</span><span class="sql1-delimitedidentifier">`reader`</span><span class="sql1-datatype">varchar</span><span class="sql1-symbol">(</span><span class="sql1-number">100</span><span class="sql1-symbol">),\n</span><span class="sql1-reservedword">PRIMARY</span><span class="sql1-reservedword">KEY</span><span class="sql1-symbol">(</span><span class="sql1-delimitedidentifier">`id`</span><span class="sql1-symbol">)\n)\n</span><span class="sql1-reservedword">COLLATE</span><span class="sql1-symbol">=</span><span class="sql1-string">\'utf8_bin\'\n</span><span class="sql1-reservedword">ENGINE</span><span class="sql1-symbol">=</span><span class="sql1-datatype">InnoDB</span><span class="sql1-symbol">;<br /></span></pre>\n<ul>\n<li>סדרי את הטבלה בלשונית \'קריאות\'.</li>\n<li>ייצאי את כל מאגר הנתונים ושלחי אותו אלי במייל.</li>\n</ul>\n<p>תודה!</p>\n<p>&nbsp;</p>', NULL, NULL, 0, NULL, NULL, NULL, 1, NULL, NULL, NULL, 1);
 /*!40000 ALTER TABLE `jset_log_mission_` ENABLE KEYS */;
 
 
@@ -434,9 +606,9 @@ CREATE TABLE IF NOT EXISTS `jset_table` (
   `system` tinyint(3) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `unique_name` (`name`,`section`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
 
--- Dumping data for table mission.jset_table: ~6 rows (approximately)
+-- Dumping data for table mission.jset_table: ~8 rows (approximately)
 /*!40000 ALTER TABLE `jset_table` DISABLE KEYS */;
 REPLACE INTO `jset_table` (`id`, `name`, `section`, `description`, `title`, `source`, `target`, `help`, `validation`, `system`) VALUES
 	(3, 'jset_table', NULL, 'Manage grid definition', 'Tables', 'jset_table', 'jset_table', '<div>This grid let you define data objects to be used by grids in an application.</div>', NULL, 1),
@@ -444,7 +616,9 @@ REPLACE INTO `jset_table` (`id`, `name`, `section`, `description`, `title`, `sou
 	(13, 'jset_help', NULL, NULL, 'Help Tips', 'v_jset_help', 'jset_column', NULL, NULL, 1),
 	(19, 'jset_event', NULL, NULL, 'Events', 'jset_event', 'jset_event', 'This grid let you define events for a grid.<br />An event is a php method that can be set to run on the following situations:<br /><br />before insert<br />after insert<br />before select<br />after select<br />before update<br />after update<br />before delete<br />after delete<br /><br />', NULL, 1),
 	(20, 'jset_host', NULL, NULL, 'Hosts', 'jset_host', 'jset_host', 'This grid let you define credentials for accessing projects.', NULL, 1),
-	(28, 'mission', NULL, NULL, 'משימות לביצוע', 'v_mission', 'mission', NULL, NULL, 0);
+	(28, 'mission', NULL, NULL, 'משימות לביצוע', 'v_mission', 'mission', NULL, NULL, 0),
+	(35, 'document', NULL, NULL, NULL, 'document', 'document', NULL, NULL, 0),
+	(36, 'action', NULL, NULL, NULL, 'action', 'action', NULL, NULL, 0);
 /*!40000 ALTER TABLE `jset_table` ENABLE KEYS */;
 
 
@@ -457,10 +631,12 @@ CREATE TABLE IF NOT EXISTS `jset_upload` (
   `upload_name` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `upload_name` (`upload_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Dumping data for table mission.jset_upload: ~0 rows (approximately)
+-- Dumping data for table mission.jset_upload: ~1 rows (approximately)
 /*!40000 ALTER TABLE `jset_upload` DISABLE KEYS */;
+REPLACE INTO `jset_upload` (`id`, `created_at`, `name`, `upload_name`) VALUES
+	(1, '2014-11-03 11:36:07', 'export.jpg', 'd985495e-633c-11e4-9886-60eb695d014e');
 /*!40000 ALTER TABLE `jset_upload` ENABLE KEYS */;
 
 
@@ -486,10 +662,12 @@ CREATE TABLE IF NOT EXISTS `mission` (
   `priority` smallint(6) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `Index 2` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Dumping data for table mission.mission: ~0 rows (approximately)
+-- Dumping data for table mission.mission: ~1 rows (approximately)
 /*!40000 ALTER TABLE `mission` DISABLE KEYS */;
+REPLACE INTO `mission` (`id`, `created_on`, `name`, `category`, `project`, `description`, `estimated_hours`, `actual_hours`, `approved`, `approved_date`, `due_date`, `delivery_date`, `status`, `comments`, `invoice_number`, `picture`, `priority`) VALUES
+	(1, '2014-09-08 16:54:59', '1', 1, 1, '<ol>\n<li>היי שלומית, ברוכה הבאה אל מערכת המשימות החדשה שלנו.</li>\n</ol>\n<p>אני מאחל לנו עבודה משותפת רבה יחד.</p>\n<p>להלן המשימה הראשונה:</p>\n<ul>\n<li>עדכני את הגירסה של jxset דרך Aptana.</li>\n<li>עדכני את הגירסה של waterproof דרך Aptana.</li>\n<li>הריצי את הקוד הזה על מאגר הנתונים waterproof:</li>\n</ul>\n<pre dir="ltr"><span class="sql1-reservedword">CREATE</span><span class="sql1-reservedword">TABLE</span><span class="sql1-delimitedidentifier">`reading_register`</span><span class="sql1-symbol">(\n</span><span class="sql1-delimitedidentifier">`id`</span><span class="sql1-datatype">INT</span><span class="sql1-symbol">(</span><span class="sql1-number">10</span><span class="sql1-symbol">)</span><span class="sql1-datatype">UNSIGNED</span><span class="sql1-reservedword">NOT</span><span class="sql1-reservedword">NULL</span><span class="sql1-reservedword">AUTO_INCREMENT</span><span class="sql1-symbol">,\n</span><span class="sql1-delimitedidentifier">`date`</span><span class="sql1-datatype">DATE</span><span class="sql1-reservedword">NULL</span><span class="sql1-reservedword">DEFAULT</span><span class="sql1-reservedword">NULL</span><span class="sql1-symbol">,\n</span><span class="sql1-delimitedidentifier">`reader`</span><span class="sql1-datatype">varchar</span><span class="sql1-symbol">(</span><span class="sql1-number">100</span><span class="sql1-symbol">),\n</span><span class="sql1-reservedword">PRIMARY</span><span class="sql1-reservedword">KEY</span><span class="sql1-symbol">(</span><span class="sql1-delimitedidentifier">`id`</span><span class="sql1-symbol">)\n)\n</span><span class="sql1-reservedword">COLLATE</span><span class="sql1-symbol">=</span><span class="sql1-string">\'utf8_bin\'\n</span><span class="sql1-reservedword">ENGINE</span><span class="sql1-symbol">=</span><span class="sql1-datatype">InnoDB</span><span class="sql1-symbol">;<br /></span></pre>\n<ul>\n<li>סדרי את הטבלה בלשונית \'קריאות\'.</li>\n<li>ייצאי את כל מאגר הנתונים ושלחי אותו אלי במייל.</li>\n</ul>\n<p>תודה!</p>\n<p>&nbsp;</p>', NULL, NULL, 0, NULL, NULL, NULL, 1, NULL, NULL, NULL, 1);
 /*!40000 ALTER TABLE `mission` ENABLE KEYS */;
 
 
@@ -498,6 +676,7 @@ DROP VIEW IF EXISTS `v_mission`;
 -- Creating temporary table to overcome VIEW dependency errors
 CREATE TABLE `v_mission` (
 	`id` INT(10) NOT NULL,
+	`action_id` INT(11) NULL,
 	`created_on` TIMESTAMP NOT NULL,
 	`name` VARCHAR(100) NULL COLLATE 'utf8_general_ci',
 	`project` SMALLINT(7) NULL,
@@ -510,11 +689,41 @@ CREATE TABLE `v_mission` (
 	`due_date` DATE NULL,
 	`delivery_date` DATE NULL,
 	`actual_hours` DECIMAL(10,2) NULL,
-	`status` SMALLINT(6) NULL,
+	`status_last` BIGINT(11) NULL,
 	`comments` TEXT NULL COLLATE 'utf8_general_ci',
 	`invoice_number` MEDIUMINT(9) NULL,
 	`picture` VARCHAR(250) NULL COLLATE 'utf8_general_ci',
-	`priority` SMALLINT(6) NULL
+	`priority` SMALLINT(6) NULL,
+	`documents` INT(10) NOT NULL,
+	`actions` INT(10) NOT NULL
+) ENGINE=MyISAM;
+
+
+-- Dumping structure for view mission.v_mission_base
+DROP VIEW IF EXISTS `v_mission_base`;
+-- Creating temporary table to overcome VIEW dependency errors
+CREATE TABLE `v_mission_base` (
+	`id` INT(10) NOT NULL,
+	`action_id` INT(11) NULL,
+	`created_on` TIMESTAMP NOT NULL,
+	`name` VARCHAR(100) NULL COLLATE 'utf8_general_ci',
+	`project` SMALLINT(7) NULL,
+	`category` SMALLINT(7) NULL,
+	`description` TEXT NULL COLLATE 'utf8_general_ci',
+	`estimated_hours` DECIMAL(10,2) NULL,
+	`charged_hours` DECIMAL(10,2) NULL,
+	`approved` TINYINT(4) NULL,
+	`approved_date` DATE NULL,
+	`due_date` DATE NULL,
+	`delivery_date` DATE NULL,
+	`actual_hours` DECIMAL(10,2) NULL,
+	`status_last` BIGINT(11) NULL,
+	`comments` TEXT NULL COLLATE 'utf8_general_ci',
+	`invoice_number` MEDIUMINT(9) NULL,
+	`picture` VARCHAR(250) NULL COLLATE 'utf8_general_ci',
+	`priority` SMALLINT(6) NULL,
+	`documents` INT(10) NOT NULL,
+	`actions` INT(10) NOT NULL
 ) ENGINE=MyISAM;
 
 
@@ -553,7 +762,8 @@ CREATE TABLE IF NOT EXISTS `worker` (
 -- Dumping data for table mission.worker: 1 rows
 /*!40000 ALTER TABLE `worker` DISABLE KEYS */;
 REPLACE INTO `worker` (`id`, `worker_number`, `first_name`, `surename`, `gender`, `birth_date`, `marital_status`, `id_number`, `start_date`, `end_date`, `mobile`, `phone`, `email`, `address`, `dormitory`, `house`, `position`, `login`, `password`, `group`, `picture`, `pension_fund`, `bank`, `bank_branch`, `bank_account`) VALUES
-	(1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'user', _binary 0x84563AA7421ADA432A88E0DDE543EA49, 1, NULL, NULL, NULL, NULL, NULL);
+	(1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'shuki', _binary 0x88191A971995A4D3C2B042A4423C3C8A, 1, NULL, NULL, NULL, NULL, NULL),
+	(2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'shlomit', _binary 0x3927FB2BAF21874F7AB855B58EE6E77C, 1, NULL, NULL, NULL, NULL, NULL);
 /*!40000 ALTER TABLE `worker` ENABLE KEYS */;
 
 
@@ -561,26 +771,41 @@ REPLACE INTO `worker` (`id`, `worker_number`, `first_name`, `surename`, `gender`
 DROP VIEW IF EXISTS `v_mission`;
 -- Removing temporary table and create final VIEW structure
 DROP TABLE IF EXISTS `v_mission`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` VIEW `v_mission` AS select 
-	`id`,
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` VIEW `v_mission` AS select * from v_mission_base
+group by id ;
+
+
+-- Dumping structure for view mission.v_mission_base
+DROP VIEW IF EXISTS `v_mission_base`;
+-- Removing temporary table and create final VIEW structure
+DROP TABLE IF EXISTS `v_mission_base`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` VIEW `v_mission_base` AS select 
+	mission.`id`,
+	`action`.id as action_id,
 	`created_on`,
 	`name`,
 	`project`,
 	`category`,
-	`description`,
+	mission.`description`,
 	`estimated_hours`,
-	if(`status` > 2 , if(actual_hours is not null, actual_hours, estimated_hours), null) as charged_hours,
+	if(`action`.`status` > 3 , if(actual_hours is not null, actual_hours, estimated_hours), null) as charged_hours,
 	`approved`,
 	`approved_date`,
 	`due_date`,
 	`delivery_date`,
 	`actual_hours`,
-	`status`,
+--	SUBSTRING_INDEX(group_concat( `action`.`status` order by `action`.creation_date desc), ',', 1) as statusa,
+	COALESCE(`action`.`status`, 1) as `status_last`,
 	`comments`,
 	`invoice_number`,
 	`picture`,
-	`priority`
-	from mission ;
+	`priority`,
+	mission.id as `documents`,
+	mission.id as `actions`
+	from mission 
+	left join `action` on mission.id = `action`.parent 
+	group by `action`.id
+	order by `action`.id desc ;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
