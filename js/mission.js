@@ -1,4 +1,4 @@
-﻿$(function(){
+﻿﻿$(function(){
 	var grid = $('#grid');
 	var settings = {
 	  	source: 'mission', //name of table, view or the actual sql that you wish to display in the grid
